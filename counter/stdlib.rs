@@ -24,8 +24,9 @@ impl<W: Write> Write for Counter<W> {
 
 #[cfg(test)]
 mod test {
-    use crate::Counter;
     use std::io::{BufRead, BufReader, Write};
+
+    use crate::Counter;
 
     #[test]
     fn reader() {

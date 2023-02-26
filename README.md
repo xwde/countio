@@ -5,7 +5,7 @@
 > **Note** : The library contains unsafe code. See implementations of
 > `AsyncRead` and `AsyncWrite` traits for more details.
 
-The wrapper struct to enable byte counting for common `Reader` & `Writer`
+The wrapper struct to enable byte counting for common `Reader` and `Writer`
 implementations. Following features available:
 
 - `std` to enable `std::io::Read` and `std::io::Write`. Enabled by default.

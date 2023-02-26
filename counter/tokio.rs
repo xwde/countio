@@ -52,3 +52,12 @@ impl<W: AsyncWrite + Unpin> AsyncWrite for Counter<W> {
         unsafe { self.map_unchecked_mut(|c| &mut c.inner) }.poll_shutdown(ctx)
     }
 }
+
+#[cfg(test)]
+mod tests {
+    #[tokio::test]
+    async fn reader() {}
+
+    #[tokio::test]
+    async fn writer() {}
+}

@@ -49,3 +49,12 @@ impl<W: AsyncWrite + Unpin> AsyncWrite for Counter<W> {
         unsafe { self.map_unchecked_mut(|c| &mut c.inner) }.poll_close(ctx)
     }
 }
+
+#[cfg(test)]
+mod test {
+    #[futures_test::test]
+    async fn reader() {}
+
+    #[futures_test::test]
+    async fn writer() {}
+}
