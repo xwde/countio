@@ -1,10 +1,10 @@
-mod shared;
-pub use shared::*;
+mod common;
+pub use common::*;
 
 #[cfg(feature = "std")]
-mod std;
+mod stdlib;
 #[cfg(feature = "std")]
-pub use self::std::*;
+pub use self::stdlib::*;
 
 #[cfg(feature = "futures")]
 mod futures;

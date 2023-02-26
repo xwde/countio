@@ -1,3 +1,4 @@
+/// The `Counter<W>` struct adds byte counting to any Reader or Writer.
 pub struct Counter<D> {
     pub(crate) inner: D,
     pub(crate) reader_bytes: usize,

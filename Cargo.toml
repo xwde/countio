@@ -7,6 +7,7 @@ edition = "2021"
 path = "./lib.rs"
 
 [features]
+default = ["std"]
 std = []
 futures = ["dep:futures-io"]
 tokio = ["dep:tokio"] # "dep:pin-project-lite"
