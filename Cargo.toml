@@ -7,7 +7,11 @@ edition = "2021"
 path = "./lib.rs"
 
 [features]
-reader = []
-writer = []
+std = []
+futures = ["dep:futures-io"]
+tokio = ["dep:tokio"] # "dep:pin-project-lite"
 
 [dependencies]
+futures-io = { version = "0.3.26", optional = true }
+tokio = { version = "1.25.0", optional = true, default-features = false }
+#pin-project-lite = { version = "0.2.9", optional = true, default-features = false }
