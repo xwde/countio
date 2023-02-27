@@ -1,12 +1,21 @@
 ### xwde: countio
 
-> **Warning** : The library is in active development. Expect breaking changes.
+[![Build Status][action-badge]][action-url]
+[![Crate Version][crates-badge]][crates-url]
 
-> **Note** : The library contains unsafe code. See implementations of
-> `AsyncRead` and `AsyncWrite` traits for more details.
+[action-badge]: https://img.shields.io/github/actions/workflow/status/xwde/countio/build.yaml?label=build&logo=github&style=for-the-badge
+[action-url]: https://github.com/xwde/countio/actions/workflows/build.yaml
+[crates-badge]: https://img.shields.io/crates/v/countio.svg?logo=rust&style=for-the-badge
+[crates-url]: https://crates.io/crates/countio
 
 The wrapper struct to enable byte counting for `std::io::Read` and
-`std::io::Write` and its asynchronous variants from `futures` and `tokio`.
+`std::io::Write` and its asynchronous variants from `futures` and `tokio`
+crates.
+
+> **Warning** : The library is in active development. Expect breaking changes.
+
+> **Note** : The library contains unsafe code. See implementation of `Async*`
+> traits for more details.
 
 Following features available:
 
@@ -22,14 +31,14 @@ use std::io::BufReader;
 use countio::Counter;
 
 fn main() {
-    let reader = "Hello World!".as_bytes();
-
-    let reader = Counter::new(reader);
-    let mut reader = BufReader::new(reader);
+    let mut reader = "Hello World!".as_bytes();
+    let mut reader = Counter::new(&mut reader);
+    let mut reader = BufReader::new(&mut reader);
 
     let mut buf = String::new();
     let len = reader.read_line(&mut buf).unwrap();
-    assert_eq!(len, reader.get_ref().bytes());
+
+    assert_eq!(len, reader.get_ref().read_bytes());
 }
 ```
 
@@ -37,14 +46,18 @@ fn main() {
 
 ```rust
 use std::io::prelude::*;
+use std::io::BufWriter;
 use countio::Counter;
 
 fn main() {
     let mut writer = Vec::new();
     let mut writer = Counter::new(&mut writer);
+    let mut writer = BufWriter::new(&mut writer);
 
     let buf = "Hello World!".as_bytes();
     let len = writer.write(buf).unwrap();
-    assert_eq!(len, writer.bytes());
+    writer.flush().unwrap();
+
+    assert_eq!(len, writer.get_ref().written_bytes());
 }
 ```
