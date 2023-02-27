@@ -41,17 +41,17 @@ impl<D> Counter<D> {
 }
 
 impl<D> Counter<D> {
-    /// Returns the sum of read and written bytes by the internal reader/writer.
+    /// Returns the sum of read and written bytes by the underlying reader/writer.
     pub fn total_bytes(&self) -> usize {
         self.reader_bytes + self.writer_bytes
     }
 
-    /// Returns the count of read bytes by the internal reader.
+    /// Returns the count of read bytes by the underlying reader.
     pub fn read_bytes(&self) -> usize {
         self.reader_bytes
     }
 
-    /// Returns the count of written bytes by the internal writer.
+    /// Returns the count of written bytes by the underlying writer.
     pub fn written_bytes(&self) -> usize {
         self.writer_bytes
     }
