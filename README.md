@@ -1,12 +1,21 @@
 ### xwde: countio
 
+[![Build Status][action-badge]][action-url]
+[![Crate Version][crates-badge]][crates-url]
+
+[action-badge]: https://img.shields.io/github/actions/workflow/status/xwde/countio/build.yaml?label=build&logo=github&style=for-the-badge
+[action-url]: https://github.com/xwde/countio/actions/workflows/build.yaml
+[crates-badge]: https://img.shields.io/crates/v/countio.svg?logo=rust&style=for-the-badge
+[crates-url]: https://crates.io/crates/countio
+
 > **Warning** : The library is in active development. Expect breaking changes.
 
-> **Note** : The library contains unsafe code. See implementations of
-> `AsyncRead` and `AsyncWrite` traits for more details.
+> **Note** : The library contains unsafe code. See implementation of `Async*`
+> traits for more details.
 
 The wrapper struct to enable byte counting for `std::io::Read` and
-`std::io::Write` and its asynchronous variants from `futures` and `tokio`.
+`std::io::Write` and its asynchronous variants from `futures` and `tokio`
+crates.
 
 Following features available:
 
