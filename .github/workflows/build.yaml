@@ -28,10 +28,6 @@ jobs:
           key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
           restore-keys: ${{ runner.os }}-cargo-
 
-      - name: Run Cargo:check
-        run: cargo check --all-features
-        continue-on-error: false
-
       - name: Run Cargo:fmt
         run: cargo fmt --all -- --check
         continue-on-error: false
