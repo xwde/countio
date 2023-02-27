@@ -12,8 +12,6 @@ The wrapper struct to enable byte counting for `std::io::Read` and
 `std::io::Write` and its asynchronous variants from `futures` and `tokio`
 crates.
 
-> **Warning** : The library is in active development. Expect breaking changes.
-
 > **Note** : The library contains unsafe code. See implementation of `Async*`
 > traits for more details.
 
