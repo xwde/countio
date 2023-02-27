@@ -17,16 +17,14 @@
 //! use std::io::BufReader;
 //! use countio::Counter;
 //!
-//! fn main() {
-//!     let mut reader = "Hello World!".as_bytes();
-//!     let mut reader = Counter::new(&mut reader);
-//!     let mut reader = BufReader::new(&mut reader);
+//! let mut reader = "Hello World!".as_bytes();
+//! let mut reader = Counter::new(&mut reader);
+//! let mut reader = BufReader::new(&mut reader);
 //!
-//!     let mut buf = String::new();
-//!     let len = reader.read_line(&mut buf).unwrap();
+//! let mut buf = String::new();
+//! let len = reader.read_line(&mut buf).unwrap();
 //!
-//!     assert_eq!(len, reader.get_ref().read_bytes());
-//! }
+//! assert_eq!(len, reader.get_ref().read_bytes());
 //! ```
 //!
 //! - `std::io::Write`:
@@ -36,17 +34,15 @@
 //! use std::io::BufWriter;
 //! use countio::Counter;
 //!
-//! fn main() {
-//!     let mut writer = Vec::new();
-//!     let mut writer = Counter::new(&mut writer);
-//!     let mut writer = BufWriter::new(&mut writer);
+//! let mut writer = Vec::new();
+//! let mut writer = Counter::new(&mut writer);
+//! let mut writer = BufWriter::new(&mut writer);
 //!
-//!     let buf = "Hello World!".as_bytes();
-//!     let len = writer.write(buf).unwrap();
-//!     writer.flush().unwrap();
+//! let buf = "Hello World!".as_bytes();
+//! let len = writer.write(buf).unwrap();
+//! writer.flush().unwrap();
 //!
-//!     assert_eq!(len, writer.get_ref().written_bytes());
-//! }
+//! assert_eq!(len, writer.get_ref().written_bytes());
 //! ```
 
 mod counter;

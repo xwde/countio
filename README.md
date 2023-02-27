@@ -3,7 +3,7 @@
 [![Build Status][action-badge]][action-url]
 [![Crate Version][crates-badge]][crates-url]
 
-[action-badge]: https://img.shields.io/github/actions/workflow/status/xwde/countio/build.yaml?label=build&logo=github&style=for-the-badge
+[action-badge]: https://img.shields.io/github/actions/workflow/status/xwde/countio/build.yaml?branch=main&label=build&logo=github&style=for-the-badge
 [action-url]: https://github.com/xwde/countio/actions/workflows/build.yaml
 [crates-badge]: https://img.shields.io/crates/v/countio.svg?logo=rust&style=for-the-badge
 [crates-url]: https://crates.io/crates/countio
