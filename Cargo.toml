@@ -13,8 +13,8 @@ std::io::Write and its asynchronous variants from futures and tokio.
 authors = ["Oleh Martsokha <o.martsokha@gmail.com>"]
 repository = "https://github.com/xwde/countio"
 homepage = "https://github.com/xwde/countio"
-categories = ["asynchronous"]
-keywords = ["io", "byte", "couting", "counter", "tokio", "futures"]
+categories = ["parsing", "asynchronous"]
+keywords = ["byte", "counting", "counter", "tokio", "futures"]
 
 [lib]
 path = "./lib.rs"
