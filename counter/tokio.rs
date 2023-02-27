@@ -55,9 +55,33 @@ impl<W: AsyncWrite + Unpin> AsyncWrite for Counter<W> {
 
 #[cfg(test)]
 mod tests {
-    #[tokio::test]
-    async fn reader() {}
+    use tokio::io::{AsyncBufReadExt, AsyncWriteExt};
+    use tokio::io::{BufReader, BufWriter};
+
+    use crate::Counter;
 
     #[tokio::test]
-    async fn writer() {}
+    async fn reader() {
+        let mut reader = "Hello World!".as_bytes();
+        let mut reader = Counter::new(&mut reader);
+        let mut reader = BufReader::new(&mut reader);
+
+        let mut buf = String::new();
+        let len = reader.read_line(&mut buf).await.unwrap();
+
+        assert_eq!(len, reader.get_ref().read_bytes());
+    }
+
+    #[tokio::test]
+    async fn writer() {
+        let mut writer = Vec::new();
+        let mut writer = Counter::new(&mut writer);
+        let mut writer = BufWriter::new(&mut writer);
+
+        let buf = "Hello World!".as_bytes();
+        let len = writer.write(buf).await.unwrap();
+        writer.flush().await.unwrap();
+
+        assert_eq!(len, writer.get_ref().written_bytes());
+    }
 }

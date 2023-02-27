@@ -24,29 +24,32 @@ impl<W: Write> Write for Counter<W> {
 
 #[cfg(test)]
 mod test {
-    use std::io::{BufRead, BufReader, Write};
+    use std::io::{BufRead, BufReader, BufWriter, Write};
 
     use crate::Counter;
 
     #[test]
     fn reader() {
-        let reader = "hello world".as_bytes();
-
-        let reader = Counter::new(reader);
-        let mut reader = BufReader::new(reader);
+        let mut reader = "Hello World!".as_bytes();
+        let mut reader = Counter::new(&mut reader);
+        let mut reader = BufReader::new(&mut reader);
 
         let mut buf = String::new();
         let len = reader.read_line(&mut buf).unwrap();
-        assert_eq!(len, reader.get_ref().bytes());
+
+        assert_eq!(len, reader.get_ref().read_bytes());
     }
 
     #[test]
     fn writer() {
         let mut writer = Vec::new();
         let mut writer = Counter::new(&mut writer);
+        let mut writer = BufWriter::new(&mut writer);
 
-        let buf = "hello world".as_bytes();
+        let buf = "Hello World!".as_bytes();
         let len = writer.write(buf).unwrap();
-        assert_eq!(len, writer.bytes());
+        writer.flush().unwrap();
+
+        assert_eq!(len, writer.get_ref().written_bytes());
     }
 }
