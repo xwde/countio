@@ -3,7 +3,7 @@
 //! crates.
 //!
 //! ## Features
-//! 
+//!
 //! - `std` to enable `std::io::Read` and `std::io::Write`. **Enabled by default**.                                                                                    
 //! - `futures` to enable `futures_io::AsyncRead` and `futures_io::AsyncWrite`.                                                                                        
 //! - `tokio` to enable `tokio::io::AsyncRead` and `tokio::io::AsyncWrite`.                                                                                            
