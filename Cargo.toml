@@ -1,13 +1,13 @@
 [package]
 name = "countio"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 
 license = "MIT"
 readme = "./README.md"
 description = """
-The wrapper struct to enable byte counting for std::io::Read and
-std::io::Write and its asynchronous variants from futures and tokio.
+Byte counting for std::io::{Read, Write} and
+its async variants from futures and tokio.
 """
 
 authors = ["Oleh Martsokha <o.martsokha@gmail.com>"]
