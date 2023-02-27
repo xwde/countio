@@ -1,6 +1,5 @@
-/// The `Counter<D>` struct enables byte counting for `std::io::Read` and
-/// `std::io::Write` and its asynchronous variants from `futures` and `tokio`
-/// crates.
+/// Generic reader & writer wrapper
+/// with byte counting capability.
 pub struct Counter<D> {
     pub(crate) inner: D,
     pub(crate) reader_bytes: usize,

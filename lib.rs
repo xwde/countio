@@ -8,7 +8,9 @@
 //! - `futures` to enable `futures_io::AsyncRead` and `futures_io::AsyncWrite`.                                                                                        
 //! - `tokio` to enable `tokio::io::AsyncRead` and `tokio::io::AsyncWrite`.                                                                                            
 //!
-//! ### `std::io::Read`:
+//! ## Examples
+//!
+//! - `std::io::Read`:
 //!
 //! ```rust
 //! use std::io::prelude::*;
@@ -27,7 +29,7 @@
 //! }
 //! ```
 //!
-//! ### `std::io::Write`:
+//! - `std::io::Write`:
 //!
 //! ```rust
 //! use std::io::prelude::*;
