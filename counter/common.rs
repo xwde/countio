@@ -1,23 +1,6 @@
 /// The `Counter<D>` struct enables byte counting for `std::io::Read` and
 /// `std::io::Write` and its asynchronous variants from `futures` and `tokio`
 /// crates.
-///
-/// # Examples
-///
-/// ```rust
-/// # use std::io::{BufWriter, Write};
-/// # use countio::Counter;
-///
-/// let mut writer = Vec::new();
-/// let mut writer = Counter::new(&mut writer);
-/// let mut writer = BufWriter::new(&mut writer);
-///
-/// let buf = "Hello World!".as_bytes();
-/// let len = writer.write(buf).unwrap();
-/// writer.flush().unwrap();
-///
-/// assert_eq!(len, writer.get_ref().written_bytes());
-/// ```
 pub struct Counter<D> {
     pub(crate) inner: D,
     pub(crate) reader_bytes: usize,

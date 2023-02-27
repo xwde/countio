@@ -1,4 +1,4 @@
-### xwde: countio
+## xwde: countio
 
 [![Build Status][action-badge]][action-url]
 [![Crate Version][crates-badge]][crates-url]
@@ -21,7 +21,7 @@ Following features available:
 - `futures` to enable `futures_io::AsyncRead` and `futures_io::AsyncWrite`.
 - `tokio` to enable `tokio::io::AsyncRead` and `tokio::io::AsyncWrite`.
 
-#### `std::io::Read`:
+### `std::io::Read`:
 
 ```rust
 use std::io::prelude::*;
@@ -40,7 +40,7 @@ fn main() {
 }
 ```
 
-#### `std::io::Write`:
+### `std::io::Write`:
 
 ```rust
 use std::io::prelude::*;
