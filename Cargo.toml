@@ -16,6 +16,9 @@ homepage = "https://github.com/xwde/countio"
 categories = ["parsing", "asynchronous"]
 keywords = ["byte", "counting", "counter", "tokio", "futures"]
 
+[package.metadata.docs.rs]
+all-features = true
+
 [lib]
 path = "./lib.rs"
 
