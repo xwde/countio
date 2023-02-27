@@ -1,4 +1,19 @@
-/// The `Counter<W>` struct adds byte counting to any Reader or Writer.
+/// The `Counter<D>` struct adds byte counting to any std::io::Read or std::io::Write.
+///
+/// # Examples
+///
+/// ```rust
+/// # use std::io::Write;
+/// # use countio::Counter;
+///
+/// let mut writer = Vec::new(); // : Write
+/// let mut writer = Counter::new(&mut writer);
+///
+/// let buf = "Hello World!".as_bytes();
+/// let len = writer.write(buf).unwrap();
+///
+/// assert_eq!(len, writer.bytes());
+/// ```
 pub struct Counter<D> {
     pub(crate) inner: D,
     pub(crate) reader_bytes: usize,

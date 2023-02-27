@@ -5,10 +5,12 @@
 > **Note** : The library contains unsafe code. See implementations of
 > `AsyncRead` and `AsyncWrite` traits for more details.
 
-The wrapper struct to enable byte counting for common `Reader` and `Writer`
-implementations. Following features available:
+The wrapper struct to enable byte counting for `std::io::Read` and
+`std::io::Write` and its asynchronous variants from `futures` and `tokio`.
 
-- `std` to enable `std::io::Read` and `std::io::Write`. Enabled by default.
+Following features available:
+
+- `std` to enable `std::io::Read` and `std::io::Write`. **Enabled by default**.
 - `futures` to enable `futures_io::AsyncRead` and `futures_io::AsyncWrite`.
 - `tokio` to enable `tokio::io::AsyncRead` and `tokio::io::AsyncWrite`.
 
@@ -20,7 +22,7 @@ use std::io::BufReader;
 use countio::Counter;
 
 fn main() {
-    let reader = "hello world".as_bytes();
+    let reader = "Hello World!".as_bytes();
 
     let reader = Counter::new(reader);
     let mut reader = BufReader::new(reader);
@@ -41,7 +43,7 @@ fn main() {
     let mut writer = Vec::new();
     let mut writer = Counter::new(&mut writer);
 
-    let buf = "hello world".as_bytes();
+    let buf = "Hello World!".as_bytes();
     let len = writer.write(buf).unwrap();
     assert_eq!(len, writer.bytes());
 }

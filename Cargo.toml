@@ -17,5 +17,6 @@ futures-io = { version = "0.3.26", optional = true }
 tokio = { version = "1.25.0", optional = true, default-features = false }
 
 [dev-dependencies]
+futures-util = { version = "0.3.26" }
 futures-test = { version = "0.3.26" }
-tokio = { version = "1.25.0", features = ["rt", "macros"] }
+tokio = { version = "1.25.0", features = ["rt", "macros", "io-util"] }
