@@ -66,7 +66,7 @@ mod test {
         let mut buf = String::new();
         let len = reader.read_line(&mut buf).await.unwrap();
 
-        assert_eq!(len, reader.get_ref().read_bytes());
+        assert_eq!(len, reader.get_ref().reader_bytes());
     }
 
     #[futures_test::test]
@@ -79,6 +79,6 @@ mod test {
         let len = writer.write(buf).await.unwrap();
         writer.flush().await.unwrap();
 
-        assert_eq!(len, writer.get_ref().written_bytes());
+        assert_eq!(len, writer.get_ref().writer_bytes());
     }
 }
