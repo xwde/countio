@@ -1,12 +1,12 @@
-//! The wrapper struct to enable byte counting for `std::io::Read` and
-//! `std::io::Write` and its asynchronous variants from `futures` and `tokio`
+//! The wrapper struct to enable byte counting for [std::io::Read] and
+//! [std::io::Write] and its asynchronous variants from `futures` and `tokio`
 //! crates.
 //!
 //! ## Features
 //!
-//! - `std` to enable `std::io::Read` and `std::io::Write`. **Enabled by default**.                                                                                    
-//! - `futures` to enable `futures_io::AsyncRead` and `futures_io::AsyncWrite`.                                                                                        
-//! - `tokio` to enable `tokio::io::AsyncRead` and `tokio::io::AsyncWrite`.                                                                                            
+//! - `std` to enable [std::io::Read] and [std::io::Write]. **Enabled by default**.
+//! - `futures` to enable [futures_io::AsyncRead] and [futures_io::AsyncWrite].
+//! - `tokio` to enable [tokio::io::AsyncRead] and [tokio::io::AsyncWrite].
 //!
 //! ## Examples
 //!
@@ -24,7 +24,7 @@
 //! let mut buf = String::new();
 //! let len = reader.read_line(&mut buf).unwrap();
 //!
-//! assert_eq!(len, reader.get_ref().read_bytes());
+//! assert_eq!(len, reader.get_ref().reader_bytes());
 //! ```
 //!
 //! - `std::io::Write`:
@@ -42,7 +42,7 @@
 //! let len = writer.write(buf).unwrap();
 //! writer.flush().unwrap();
 //!
-//! assert_eq!(len, writer.get_ref().written_bytes());
+//! assert_eq!(len, writer.get_ref().writer_bytes());
 //! ```
 
 mod counter;
