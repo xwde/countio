@@ -6,12 +6,12 @@ pub struct Counter<D> {
 }
 
 impl<D> Counter<D> {
-    /// Creates a new `Counter<D>` with a zero read/written bytes.
+    /// Creates a new `Counter<D>` with zero read/written bytes.
     pub fn new(inner: D) -> Self {
         Self::with_bytes(0, 0, inner)
     }
 
-    /// Creates a new `Counter<D>` with the specified read and written bytes.
+    /// Creates a new `Counter<D>` with the specified read/written bytes.
     pub fn with_bytes(reader_bytes: usize, writer_bytes: usize, inner: D) -> Self {
         Self {
             inner,

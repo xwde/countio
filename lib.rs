@@ -1,3 +1,5 @@
+#![forbid(unsafe_code)]
+
 //! The wrapper struct to enable byte counting for [std::io::Read] and
 //! [std::io::Write] and its asynchronous variants from `futures` and `tokio`
 //! crates.
