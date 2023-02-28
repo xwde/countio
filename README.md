@@ -1,7 +1,6 @@
-## `xwde`: `countio`
+## xwde: countio
 
-[![Build Status][action-badge]][action-url]
-[![Docs][docs-badge]][docs-url]
+[![Build Status][action-badge]][action-url] [![Docs][docs-badge]][docs-url]
 [![Crate Version][crates-badge]][crates-url]
 
 [action-badge]: https://img.shields.io/github/actions/workflow/status/xwde/countio/build.yaml?branch=main&label=build&logo=github&style=for-the-badge
@@ -18,13 +17,15 @@ crates.
 > **Note** : The library contains unsafe code. See implementation of `Async*`
 > traits for more details.
 
-Following features available:
+### Features
 
 - `std` to enable `std::io::Read` and `std::io::Write`. **Enabled by default**.
 - `futures` to enable `futures_io::AsyncRead` and `futures_io::AsyncWrite`.
 - `tokio` to enable `tokio::io::AsyncRead` and `tokio::io::AsyncWrite`.
 
-### `std::io::Read`:
+### Examples
+
+- `std::io::Read`:
 
 ```rust
 use std::io::prelude::*;
@@ -43,7 +44,7 @@ fn main() {
 }
 ```
 
-### `std::io::Write`:
+- `std::io::Write`:
 
 ```rust
 use std::io::prelude::*;

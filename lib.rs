@@ -1,12 +1,12 @@
-//! The wrapper struct to enable byte counting for `std::io::Read` and
-//! `std::io::Write` and its asynchronous variants from `futures` and `tokio`
+//! The wrapper struct to enable byte counting for [std::io::Read] and
+//! [std::io::Write] and its asynchronous variants from `futures` and `tokio`
 //! crates.
 //!
 //! ## Features
 //!
-//! - `std` to enable `std::io::Read` and `std::io::Write`. **Enabled by default**.                                                                                    
-//! - `futures` to enable `futures_io::AsyncRead` and `futures_io::AsyncWrite`.                                                                                        
-//! - `tokio` to enable `tokio::io::AsyncRead` and `tokio::io::AsyncWrite`.                                                                                            
+//! - `std` to enable [std::io::Read] and [std::io::Write]. **Enabled by default**.
+//! - `futures` to enable [futures_io::AsyncRead] and [futures_io::AsyncWrite].
+//! - `tokio` to enable [tokio::io::AsyncRead] and [tokio::io::AsyncWrite].
 //!
 //! ## Examples
 //!
