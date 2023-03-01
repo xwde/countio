@@ -1,4 +1,4 @@
-/// Generic reader & writer wrapper with byte counting capability.
+/// The `Counter<R>` struct adds byte counting to any reader or writer.
 pub struct Counter<D> {
     pub(crate) inner: D,
     pub(crate) reader_bytes: usize,
