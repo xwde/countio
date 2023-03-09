@@ -1,4 +1,4 @@
-/// The `Counter<R>` struct adds byte counting to any reader or writer.
+/// The `Counter<D>` struct adds byte counting to any reader or writer.
 pub struct Counter<D> {
     pub(crate) inner: D,
     pub(crate) reader_bytes: usize,
@@ -35,7 +35,7 @@ impl<D> Counter<D> {
         self.writer_bytes
     }
 
-    /// Consumes `Counter` returning the underlying reader/writer.
+    /// Consumes `Counter<D>` returning the underlying reader/writer.
     pub fn into_inner(self) -> D {
         self.inner
     }
