@@ -34,9 +34,9 @@ impl<W: AsyncWrite + Unpin> AsyncWrite for Counter<W> {
         buf: &[u8],
     ) -> Poll<IoResult<usize>> {
         let counter = self.get_mut();
-
         let pin = Pin::new(&mut counter.inner);
         let poll = pin.poll_write(ctx, buf);
+
         if let Poll::Ready(Ok(bytes)) = poll {
             counter.writer_bytes += bytes
         }
