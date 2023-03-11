@@ -1,8 +1,8 @@
-use std::io::Result as IoResult;
+use std::io::{Result as IoResult, SeekFrom};
 use std::pin::Pin;
 use std::task::{Context, Poll};
 
-use tokio::io::{AsyncRead, AsyncWrite, ReadBuf};
+use tokio::io::{AsyncRead, AsyncSeek, AsyncWrite, ReadBuf};
 
 use crate::Counter;
 
@@ -54,6 +54,20 @@ impl<W: AsyncWrite + Unpin> AsyncWrite for Counter<W> {
         let counter = self.get_mut();
         let pin = Pin::new(&mut counter.inner);
         pin.poll_shutdown(ctx)
+    }
+}
+
+impl<D: AsyncSeek + Unpin> AsyncSeek for Counter<D> {
+    fn start_seek(self: Pin<&mut Self>, position: SeekFrom) -> IoResult<()> {
+        let counter = self.get_mut();
+        let pin = Pin::new(&mut counter.inner);
+        pin.start_seek(position)
+    }
+
+    fn poll_complete(self: Pin<&mut Self>, ctx: &mut Context<'_>) -> Poll<IoResult<u64>> {
+        let counter = self.get_mut();
+        let pin = Pin::new(&mut counter.inner);
+        pin.poll_complete(ctx)
     }
 }
 

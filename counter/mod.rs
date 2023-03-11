@@ -1,5 +1,4 @@
 use std::fmt::{Debug, Formatter, Result as FmtResult};
-use std::io::{Result as IoResult, Seek, SeekFrom};
 
 /// The `Counter<D>` struct adds byte counting to any reader or writer.
 pub struct Counter<D> {
@@ -54,6 +53,12 @@ impl<D> Counter<D> {
     }
 }
 
+impl<D> From<D> for Counter<D> {
+    fn from(inner: D) -> Self {
+        Self::new(inner)
+    }
+}
+
 impl<D: Debug> Debug for Counter<D> {
     fn fmt(&self, f: &mut Formatter<'_>) -> FmtResult {
         f.debug_struct("Counter")
@@ -61,18 +66,6 @@ impl<D: Debug> Debug for Counter<D> {
             .field("read", &self.reader_bytes)
             .field("written", &self.writer_bytes)
             .finish()
-    }
-}
-
-impl<D: Seek> Seek for Counter<D> {
-    fn seek(&mut self, pos: SeekFrom) -> IoResult<u64> {
-        self.inner.seek(pos)
-    }
-}
-
-impl<D> From<D> for Counter<D> {
-    fn from(inner: D) -> Self {
-        Self::new(inner)
     }
 }
 
