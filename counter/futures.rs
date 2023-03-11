@@ -1,8 +1,8 @@
-use std::io::Result as IoResult;
+use std::io::{Result as IoResult, SeekFrom};
 use std::pin::Pin;
 use std::task::{Context, Poll};
 
-use futures_io::{AsyncRead, AsyncWrite};
+use futures_io::{AsyncRead, AsyncSeek, AsyncWrite};
 
 use crate::Counter;
 
@@ -51,6 +51,18 @@ impl<W: AsyncWrite + Unpin> AsyncWrite for Counter<W> {
         let counter = self.get_mut();
         let pin = Pin::new(&mut counter.inner);
         pin.poll_close(ctx)
+    }
+}
+
+impl<D: AsyncSeek + Unpin> AsyncSeek for Counter<D> {
+    fn poll_seek(
+        self: Pin<&mut Self>,
+        ctx: &mut Context<'_>,
+        pos: SeekFrom,
+    ) -> Poll<IoResult<u64>> {
+        let counter = self.get_mut();
+        let pin = Pin::new(&mut counter.inner);
+        pin.poll_seek(ctx, pos)
     }
 }
 

@@ -11,15 +11,15 @@
 [docs-badge]: https://img.shields.io/docsrs/countio?logo=Docs.rs&style=for-the-badge
 [docs-url]: http://docs.rs/countio
 
-The wrapper struct to enable byte counting for `std::io::Read` and
-`std::io::Write` and its asynchronous variants from `futures` and `tokio`
-crates.
+The wrapper struct to enable byte counting for `std::io::Read`,
+`std::io::Write`, `std::io::Seek` and its asynchronous variants from `futures`
+and `tokio` crates.
 
 ### Features
 
-- `std` to enable `std::io::Read` and `std::io::Write`. **Enabled by default**.
-- `futures` to enable `futures_io::AsyncRead` and `futures_io::AsyncWrite`.
-- `tokio` to enable `tokio::io::AsyncRead` and `tokio::io::AsyncWrite`.
+- `std` to enable `std::io::{Read, Write, Seek}`. **Enabled by default**.
+- `futures` to enable `futures_io::{AsyncRead, AsyncWrite, AsyncSeek}`.
+- `tokio` to enable `tokio::io::{AsyncRead, AsyncWrite, AsyncSeek}`.
 
 ### Examples
 

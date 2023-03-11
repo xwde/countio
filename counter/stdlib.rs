@@ -1,4 +1,4 @@
-use std::io::{Read, Result as IoResult, Write};
+use std::io::{Read, Result as IoResult, Seek, SeekFrom, Write};
 
 use crate::Counter;
 
@@ -19,6 +19,12 @@ impl<W: Write> Write for Counter<W> {
 
     fn flush(&mut self) -> IoResult<()> {
         self.inner.flush()
+    }
+}
+
+impl<D: Seek> Seek for Counter<D> {
+    fn seek(&mut self, pos: SeekFrom) -> IoResult<u64> {
+        self.inner.seek(pos)
     }
 }
 
