@@ -8,7 +8,7 @@ edition = "2021"
 license = "MIT"
 readme = "./README.md"
 description = """
-Byte counting for std::io::{Read, Write} and
+Byte counting for std::io::{Read, Write, Seek} and
 its async variants from futures and tokio.
 """
 
