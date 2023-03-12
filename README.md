@@ -1,8 +1,10 @@
-## xwde: countio
+## countio
 
 [![Build Status][action-badge]][action-url]
 [![Crate Docs][docs-badge]][docs-url]
 [![Crate Version][crates-badge]][crates-url]
+
+**Also check out other `xwde` projects [here](https://github.com/xwde).**
 
 [action-badge]: https://img.shields.io/github/actions/workflow/status/xwde/countio/build.yaml?branch=main&label=build&logo=github&style=for-the-badge
 [action-url]: https://github.com/xwde/countio/actions/workflows/build.yaml
@@ -61,3 +63,7 @@ fn main() {
     assert_eq!(len, writer.get_ref().writer_bytes());
 }
 ```
+
+### Links
+
+- [SOF3/count-write](https://crates.io/crates/count-write)
