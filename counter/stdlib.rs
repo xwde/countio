@@ -1,5 +1,5 @@
-use std::io::{Read, Result as IoResult, Seek, SeekFrom, Write};
 use std::fmt::{Debug, Formatter, Result as FmtResult};
+use std::io::{Read, Result as IoResult, Seek, SeekFrom, Write};
 
 use crate::Counter;
 
