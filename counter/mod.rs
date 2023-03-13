@@ -66,8 +66,24 @@ mod tokio;
 
 #[cfg(test)]
 mod tests {
+    use super::*;
+
     #[test]
-    fn reader() {
-        // let
+    fn inner() {
+        let mut writer = Vec::<u8>::new();
+        writer.push(8);
+        assert_eq!(writer.len(), 1);
+
+        let mut writer = Counter::new(writer);
+        writer.get_mut().clear();
+        assert_eq!(writer.get_ref().len(), 0);
+
+        let writer = writer.into_inner();
+        assert_eq!(writer.len(), 0);
+    }
+
+    #[test]
+    fn from() {
+        let _: Counter<_> = Vec::<u8>::new().into();
     }
 }

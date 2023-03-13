@@ -22,7 +22,7 @@ and `tokio` crates.
 
 ### Features
 
-- `std` to enable `std::io::{Read, Write, Seek}`. **Enabled by default**.
+- `std` to enable `std::io::{Read, Write, Seek, Debug}`. **Enabled by default**.
 - `futures` to enable `futures_io::{AsyncRead, AsyncWrite, AsyncSeek}`.
 - `tokio` to enable `tokio::io::{AsyncRead, AsyncWrite, AsyncSeek}`.
 
@@ -37,8 +37,8 @@ use countio::Counter;
 
 fn main() {
     let mut reader = "Hello World!".as_bytes();
-    let mut reader = Counter::new(&mut reader);
-    let mut reader = BufReader::new(&mut reader);
+    let mut reader = Counter::new(reader);
+    let mut reader = BufReader::new(reader);
 
     let mut buf = String::new();
     let len = reader.read_line(&mut buf).unwrap();
@@ -56,8 +56,8 @@ use countio::Counter;
 
 fn main() {
     let mut writer = Vec::new();
-    let mut writer = Counter::new(&mut writer);
-    let mut writer = BufWriter::new(&mut writer);
+    let mut writer = Counter::new(writer);
+    let mut writer = BufWriter::new(writer);
 
     let buf = "Hello World!".as_bytes();
     let len = writer.write(buf).unwrap();
