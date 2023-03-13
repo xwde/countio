@@ -84,6 +84,6 @@ mod tests {
 
     #[test]
     fn from() {
-        let _: Counter<_> =  Vec::<u8>::new().into();
+        let _: Counter<_> = Vec::<u8>::new().into();
     }
 }
