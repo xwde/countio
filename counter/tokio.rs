@@ -88,6 +88,7 @@ mod tests {
         let len = reader.read_line(&mut buf).await.unwrap();
 
         assert_eq!(len, reader.get_ref().reader_bytes());
+        assert_eq!(len, reader.get_ref().total_bytes());
     }
 
     #[tokio::test]
@@ -101,5 +102,6 @@ mod tests {
         writer.flush().await.unwrap();
 
         assert_eq!(len, writer.get_ref().writer_bytes());
+        assert_eq!(len, writer.get_ref().total_bytes());
     }
 }

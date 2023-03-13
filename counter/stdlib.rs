@@ -1,4 +1,5 @@
 use std::io::{Read, Result as IoResult, Seek, SeekFrom, Write};
+use std::fmt::{Debug, Formatter, Result as FmtResult};
 
 use crate::Counter;
 
@@ -28,6 +29,16 @@ impl<D: Seek> Seek for Counter<D> {
     }
 }
 
+impl<D: Debug> Debug for Counter<D> {
+    fn fmt(&self, f: &mut Formatter<'_>) -> FmtResult {
+        f.debug_struct("Counter")
+            .field("inner", &self.inner)
+            .field("read", &self.reader_bytes)
+            .field("written", &self.writer_bytes)
+            .finish()
+    }
+}
+
 #[cfg(test)]
 mod test {
     use std::io::{BufRead, BufReader};
@@ -45,6 +56,7 @@ mod test {
         let len = reader.read_line(&mut buf).unwrap();
 
         assert_eq!(len, reader.get_ref().reader_bytes());
+        assert_eq!(len, reader.get_ref().total_bytes());
     }
 
     #[test]
@@ -58,5 +70,15 @@ mod test {
         writer.flush().unwrap();
 
         assert_eq!(len, writer.get_ref().writer_bytes());
+        assert_eq!(len, writer.get_ref().total_bytes());
+    }
+
+    #[test]
+    fn debug() {
+        let writer = Vec::<u8>::new();
+        let writer = Counter::new(writer);
+
+        let fmt = "Counter { inner: [], read: 0, written: 0 }";
+        assert_eq!(format!("{writer:?}"), fmt);
     }
 }
