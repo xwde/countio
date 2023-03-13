@@ -43,3 +43,11 @@ jobs:
       - name: Run Cargo:test
         run: cargo test --all-features
         continue-on-error: false
+
+      - name: Run Cargo:tarpaulin
+        run: cargo tarpaulin --all-features
+        continue-on-error: false
+
+      - name: Codecov
+        uses: codecov/codecov-action@v3
+        continue-on-error: false
