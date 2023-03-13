@@ -3,15 +3,18 @@
 [![Build Status][action-badge]][action-url]
 [![Crate Docs][docs-badge]][docs-url]
 [![Crate Version][crates-badge]][crates-url]
+[![Crate Coverage][coverage-badge]][coverage-url]
 
 **Also check out other `xwde` projects [here](https://github.com/xwde).**
 
-[action-badge]: https://img.shields.io/github/actions/workflow/status/xwde/countio/build.yaml?branch=main&label=build&logo=github&style=for-the-badge
+[action-badge]: https://img.shields.io/github/actions/workflow/status/xwde/countio/build.yaml?branch=main&label=build&logo=github&style=flat-square
 [action-url]: https://github.com/xwde/countio/actions/workflows/build.yaml
-[crates-badge]: https://img.shields.io/crates/v/countio.svg?logo=rust&style=for-the-badge
+[crates-badge]: https://img.shields.io/crates/v/countio.svg?logo=rust&style=flat-square
 [crates-url]: https://crates.io/crates/countio
-[docs-badge]: https://img.shields.io/docsrs/countio?logo=Docs.rs&style=for-the-badge
+[docs-badge]: https://img.shields.io/docsrs/countio?logo=Docs.rs&style=flat-square
 [docs-url]: http://docs.rs/countio
+[coverage-badge]: https://img.shields.io/codecov/c/github/xwde/countio?style=flat-square
+[coverage-url]: https://app.codecov.io/gh/xwde/countio
 
 The wrapper struct to enable byte counting for `std::io::Read`,
 `std::io::Write`, `std::io::Seek` and its asynchronous variants from `futures`

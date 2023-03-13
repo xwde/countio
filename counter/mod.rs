@@ -1,5 +1,3 @@
-use std::fmt::{Debug, Formatter, Result as FmtResult};
-
 /// The `Counter<D>` struct adds byte counting to any reader or writer.
 pub struct Counter<D> {
     pub(crate) inner: D,
@@ -59,19 +57,17 @@ impl<D> From<D> for Counter<D> {
     }
 }
 
-impl<D: Debug> Debug for Counter<D> {
-    fn fmt(&self, f: &mut Formatter<'_>) -> FmtResult {
-        f.debug_struct("Counter")
-            .field("inner", &self.inner)
-            .field("read", &self.reader_bytes)
-            .field("written", &self.writer_bytes)
-            .finish()
-    }
-}
-
 #[cfg(feature = "futures")]
 mod futures;
 #[cfg(feature = "std")]
 mod stdlib;
 #[cfg(feature = "tokio")]
 mod tokio;
+
+#[cfg(test)]
+mod tests {
+    #[test]
+    fn reader() {
+        // let
+    }
+}
