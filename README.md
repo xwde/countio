@@ -13,7 +13,7 @@
 [crates-url]: https://crates.io/crates/countio
 [docs-badge]: https://img.shields.io/docsrs/countio?logo=Docs.rs&style=flat-square
 [docs-url]: http://docs.rs/countio
-[coverage-badge]: https://img.shields.io/codecov/c/github/xwde/countio?style=flat-square
+[coverage-badge]: https://img.shields.io/codecov/c/github/xwde/countio?logo=codecov&logoColor=white&style=flat-square
 [coverage-url]: https://app.codecov.io/gh/xwde/countio
 
 The wrapper struct to enable byte counting for `std::io::Read`,
@@ -22,7 +22,7 @@ and `tokio` crates.
 
 ### Features
 
-- `std` to enable `std::io::{Read, Write, Seek, Debug}`. **Enabled by default**.
+- `std` to enable `std::io::{Read, Write, Seek}`. **Enabled by default**.
 - `futures` to enable `futures_io::{AsyncRead, AsyncWrite, AsyncSeek}`.
 - `tokio` to enable `tokio::io::{AsyncRead, AsyncWrite, AsyncSeek}`.
 
@@ -36,8 +36,8 @@ use std::io::BufReader;
 use countio::Counter;
 
 fn main() {
-    let mut reader = "Hello World!".as_bytes();
-    let mut reader = Counter::new(reader);
+    let reader = "Hello World!".as_bytes();
+    let reader = Counter::new(reader);
     let mut reader = BufReader::new(reader);
 
     let mut buf = String::new();
@@ -55,8 +55,8 @@ use std::io::BufWriter;
 use countio::Counter;
 
 fn main() {
-    let mut writer = Vec::new();
-    let mut writer = Counter::new(writer);
+    let writer = Vec::new();
+    let writer = Counter::new(writer);
     let mut writer = BufWriter::new(writer);
 
     let buf = "Hello World!".as_bytes();

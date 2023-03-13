@@ -21,8 +21,8 @@
 //! use std::io::BufReader;
 //! use countio::Counter;
 //!
-//! let mut reader = "Hello World!".as_bytes();
-//! let mut reader = Counter::new(reader);
+//! let reader = "Hello World!".as_bytes();
+//! let reader = Counter::new(reader);
 //! let mut reader = BufReader::new(reader);
 //!
 //! let mut buf = String::new();
@@ -38,8 +38,8 @@
 //! use std::io::BufWriter;
 //! use countio::Counter;
 //!
-//! let mut writer = Vec::new();
-//! let mut writer = Counter::new(writer);
+//! let writer = Vec::new();
+//! let writer = Counter::new(writer);
 //! let mut writer = BufWriter::new(writer);
 //!
 //! let buf = "Hello World!".as_bytes();
