@@ -13,7 +13,7 @@
 [crates-url]: https://crates.io/crates/countio
 [docs-badge]: https://img.shields.io/docsrs/countio?logo=Docs.rs&style=flat-square
 [docs-url]: http://docs.rs/countio
-[coverage-badge]: https://img.shields.io/codecov/c/github/xwde/countio?style=flat-square
+[coverage-badge]: https://img.shields.io/codecov/c/github/xwde/countio?logo=codecov&logoColor=white&style=flat-square
 [coverage-url]: https://app.codecov.io/gh/xwde/countio
 
 The wrapper struct to enable byte counting for `std::io::Read`,
