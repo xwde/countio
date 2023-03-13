@@ -4,6 +4,8 @@
 //! [std::io::Write] and its asynchronous variants from `futures` and `tokio`
 //! crates.
 //!
+//! **Also check out other `xwde` projects [here](https://github.com/xwde).**
+//!
 //! ## Features
 //!
 //! - `std` to enable [std::io::Read] and [std::io::Write]. **Enabled by default**.
