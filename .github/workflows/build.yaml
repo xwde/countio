@@ -46,7 +46,9 @@ jobs:
         run: cargo test --verbose --all-features
 
       - name: Run Cargo:tarpaulin
-        run: cargo tarpaulin --verbose --all-features --out Xml
+        run: cargo tarpaulin --verbose --all-features --out Xml --output-dir ./coverage
 
       - name: Codecov
         uses: codecov/codecov-action@v3
+        with:
+          files: ./coverage/*.xml
