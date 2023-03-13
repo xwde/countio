@@ -22,8 +22,8 @@
 //! use countio::Counter;
 //!
 //! let mut reader = "Hello World!".as_bytes();
-//! let mut reader = Counter::new(&mut reader);
-//! let mut reader = BufReader::new(&mut reader);
+//! let mut reader = Counter::new(reader);
+//! let mut reader = BufReader::new(reader);
 //!
 //! let mut buf = String::new();
 //! let len = reader.read_line(&mut buf).unwrap();
@@ -39,8 +39,8 @@
 //! use countio::Counter;
 //!
 //! let mut writer = Vec::new();
-//! let mut writer = Counter::new(&mut writer);
-//! let mut writer = BufWriter::new(&mut writer);
+//! let mut writer = Counter::new(writer);
+//! let mut writer = BufWriter::new(writer);
 //!
 //! let buf = "Hello World!".as_bytes();
 //! let len = writer.write(buf).unwrap();
