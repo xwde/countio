@@ -34,6 +34,7 @@ jobs:
 
       - name: Setup Tarpaulin
         run: cargo install cargo-tarpaulin
+        continue-on-error: true
 
       - name: Run Cargo:fmt
         run: cargo fmt --all -- --check
